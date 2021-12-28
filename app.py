@@ -11,12 +11,13 @@ import base64
 from io import BytesIO
 import pickle
 from plotly.io import read_json
+from PIL import Image
 
 # GLOBAL
 DFS_PATH = r'./data/dfs.dat'
 STATS_PATH  = './data/stats.dat'
 HOURLY_ACTIVITY_PLOT_PATH = r'./data/hourly_activity_plot.json'
-WC_PATH = r'./data/wc.dat'
+WC_PATH = r'./data/wc.png'
 
 MB_B = r'./data/macro_breakdown_plot_bf.json'
 MB_MS = r'./data/macro_breakdown_plot_morn_s.json'
@@ -59,10 +60,7 @@ hourly_activity_plot = read_json(HOURLY_ACTIVITY_PLOT_PATH)
 daily_stats_plot = get_daily_stats_plot(workouts)
 macro_breakdown_plots = {'Breakfast': read_json(MB_B), 'Morning Snack': read_json(MB_MS),
     'Lunch': read_json(MB_L), 'Midday Snack': read_json(MB_MDYS), 'Dinner': read_json(MB_D), 'Post Dinner': read_json(MD_PD)}
-
-
-with open(WC_PATH, 'rb') as f:
-    nutrition_wordcloud = pickle.load(f).to_image()
+nutrition_wordcloud = Image.open(WC_PATH)
 
 # LOAD CSS STYLESHEETS AND JS FILES
 stylesheets = ['./static/css/dash.css'] # CSS stylesheets
