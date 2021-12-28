@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+    <head>
+        <!-- meta charset -->
+        <meta charset="utf-8">
+        <!-- site title -->
+        <title>Aman's Fitness</title>
+        <!-- meta description -->
+        <meta name="description" content="A site to view and analyze all the fitness and health data I've collected with my Apple Watch, iPhone, and other sources.">
+        <!-- mobile viwport meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- favicon -->
+        <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+        
+        <!-- ================================
+        CSS Files
+        ================================= -->
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i|Open+Sans:400,600,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/dark.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/buttons.css') }}">
+    </head>
+
+    <body class="dark">
+
+        <div class="preloader">
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+        </div>
+
+        <main class="site-wrapper">
+            <div class="pt-table">
+                <div class="pt-tablecell page-home relative" style="background-image: url('../assets/fitness_wallpaper.jpeg'); opacity: 1;">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                                <div class="page-title home text-center">
+                                    <div style="text-align:center;">
+                                        <svg viewBox="0 0 1300 300">
+                                            <symbol id="s-text">
+                                                <text text-anchor="middle" x="50%" y="80%">Aman's Fitness</text>
+                                            </symbol>
+
+                                            <g class = "g-ants">
+                                                <use xlink:href="#s-text" class="text-copy"></use>
+                                                <use xlink:href="#s-text" class="text-copy"></use>
+                                                <use xlink:href="#s-text" class="text-copy"></use>
+                                                <use xlink:href="#s-text" class="text-copy"></use>
+                                                <use xlink:href="#s-text" class="text-copy"></use>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <p>I've always been a health and fitness enthusiast, playing a variety of sports and valuing balanced nutrition. I took it to the next level in 2020 when I got an Apple Watch and starting consistently tracking everything, from food to workouts to weight. Here, I combine my passion in data science and fitness to gain insights to keep me motivated and consistent.</p>
+                                </div>
+                                <a href="/wrapped">
+                                   <div id="button">
+                                        <button class="glow-on-hover" type="button">OPEN 2021 WRAPPED!</button>
+                                    </div>
+                                </a>
+                            </div> <!-- /.col-xs-12 -->
+                        </div> <!-- /.row -->
+                    </div> <!-- /.container -->
+                </div> <!-- /.pt-tablecell -->
+            </div> <!-- /.pt-table -->
+        </main> <!-- /.site-wrapper -->
+        
+        <!-- ================================
+        JavaScript Libraries
+        ================================= -->
+        <script src="{{ url_for('static',filename='js/vendor/jquery-2.2.4.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/vendor/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/jquery.nicescroll.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/owl.carousel.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/jquery-validation.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/form.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    </body>
+</html>

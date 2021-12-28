@@ -1,0 +1,109 @@
+body {
+  height:100%;
+  background-image: url("fitness_wallpaper_trans.png");
+  opacity: 1;
+  background-size: cover;
+  background-position: center top;
+}
+
+.divider {
+  border: 1px dotted #000fff;
+}
+
+.container {
+  width: 100%;
+  min-height: 10vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000;
+  font-size: 0;
+}
+
+.spanp {
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+  font-size: 30px;
+  color: #000fff;
+}
+
+.s {
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+  font-size: 30px;
+  color: #000fff;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #000fff;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #000fff, 0 0 40px #000fff;
+  }
+}
+
+.workout-overview-dropdown {
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+}
+
+.macro-breakdown-dropdown {
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+}
+
+.section {
+  border: 1px solid #000fff;
+  border-radius: 25px;
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+.Select-control {
+  color: #000000;
+}
+
+.VirtualizedSelectOption {
+    background-color: lightblue;
+    color: black;
+}
+
+.VirtualizedSelectFocusedOption {
+    background-color: #000fff;
+    color: white;
+}
+
+#monthly-stats {
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner table {
+  --accent: #000fff;
+  --hover: lightblue;
+  --selected-background: #000fff;
+}
+
+#workout-map {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.DateInput_input {
+    color: inherit !important;
+    text-align: center;
+    font-size: inherit ! important;
+    font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+}
+
+#top-10-lifts {
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+}
+
+#wc {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
