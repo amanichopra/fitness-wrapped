@@ -237,7 +237,7 @@ dash.layout = html.Div(children=[
     Output('workout-overview-plot', 'figure'),
     Input('workout-overview-dropdown', 'value'))
 def update_workouts_overview(metric):
-    return overview_plots['metric']
+    return overview_plots[metric]
 
 
 @dash.callback(
