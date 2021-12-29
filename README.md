@@ -1,4 +1,4 @@
-# 2021 Wrapped
+# [2021 Wrapped](https://fitness-wrapped.herokuapp.com/)
 
 Ever since I bought an Apple Watch in 2020, I took data collection to the next level. I've always been a health and fitness enthusiast, but I started tracking every walk, bike ride, gym workout, body measurements, nutrition, and more. Especially being a type-1 diabetic, it's important for me to stay active, eat the right foods, and stay consistent to help manage this disease. 
 
@@ -30,7 +30,23 @@ This part of the project resulting in the most bugs. With data coming from vario
 
 ### EDA and Designing Visuals
 
+This was the most exciting part: exploring my data! I produced dozens of plots and statistics like heart rate distributions, favorite food items, macronutrient distributions, blood glucose patterns, daily TDEE, caloric intake, step count distributions, and much more. Ultimately, I narrowed down a list of 10 plots and statistics that really stuck with me. These were hard to choose, but given that the goal of this project was to "wrap up" the year, I had to be selective in what I included. These plots are implemented in the app.
+
+### Creating the Web App
+
+Creating the web app was definitely the most difficult part. At the same time though, this is where I learned the most. I don't have prior front-end experience with desigining websites or UIs. I learned about various languages, frameworks, and tools like Flask, Django, HTML, CSS, JS, Bootstrap, and React. Ultimately, I decided to use HTML for structuring the site, Boostrap CSS to style it, JS for the interactivity, and Flask in Python to implement the dashboard. 
+
+Designing the layout for the site was the fun part. In fact, it felt more like art than programming. I spent days drawing layouts on my iPad, planning where to position each of the plots and statistics. After coming up with a satisfying layout, I went about writing the HTML, CSS, and JS. After this, I wrote the Flask app and tested locally.
+
+### Deployment
+
+The last step involved deploying the web app onto a remote server. This step was important to me, as I wanted to make this public and available for anyone to see. I explored various cloud Platform as a Service (PaaS) solutions like Pythonanywhere, Heroku, AWS Elastic Beanstalk, Digital Ocean, and Amazon EC2. Ultimately, I decided to go with Heroku, as there were many tutorials and resources for deploying Flask/Dash apps.
+
+Deployment had its own set of issues. My builds kept failing due to the storage limits being exceeded. My initial app loading several large datasets into memory and conducted expensive data transformations. Since my datasets were static and only portraying statistics from 2021, I decided to only load the final, processed versions of the data and plots. Heroku's free plan only allowed for 512mb of RAM, so this was very beneficial. Another issue I ran into was Git's file storage limit being exceeded. GitHub has its own quotas, so I had to incorporate Git LFS and connect it to Heroku for successful deployment.
+
+After deployment, the app was functional but slow in loading. The walking visualizer map with 900+ walks and 1 million coordinates from the year was a 150mb file causing the app to crash or load slowly. I'm currently working on implementing the Ramer–Douglas–Peucker algorithm to downsample the GPX files being loaded into the map. The goal is to reduce file size to below 100mb for faster rendering and so I can prevent using Git LFS.
 
 
-Designing visuals was more of an art than programming. I spent a few days drawing on my iPad. I really had to think
+
+
 
