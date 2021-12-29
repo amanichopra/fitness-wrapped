@@ -12,7 +12,7 @@ November came along, and I had an epiphany: winter break was coming soon and I n
 
 After this epiphany, I began brainstorming how I could execute this vision and build something deliverable. I've always had ideas in my head, but this one was different. I couldn't waste all the data that I've been tracking so consistently. I learned about Trello and the agile workflow to help manage my project workflow. 
 
-<img width="568" height=75% alt="Screen Shot 2021-12-28 at 5 41 03 PM" src="https://user-images.githubusercontent.com/42814002/147619493-a8ad10ff-0ff3-415c-8438-578d1bf06714.png">
+<img width="568" height=50% alt="Screen Shot 2021-12-28 at 5 41 03 PM" src="https://user-images.githubusercontent.com/42814002/147619493-a8ad10ff-0ff3-415c-8438-578d1bf06714.png">
 
 As shown above, these were some of the initial features I added to my kanban boards. I utilized 3 buckets: todo, in-progress, and complete. I updated the features daily throughout November, as new ideas came to my head.
 
