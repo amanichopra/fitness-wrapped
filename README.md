@@ -24,4 +24,13 @@ Finally, winter break came along. I had 3 weeks to get this project to a deliver
 3. Create a web application.
 4. Deploy the app.
 
+### ETL (Extract, Transform, Load)
+
+This part of the project resulting in the most bugs. With data coming from various sources (Apple Health, MyFitnessPal (MFP), Renpho Weighing Scale, Apple Watch, Dexcom CGM, Strong Workout App), I had to develop a robust pipeline to combine all these datasets and standardize them. I wrote a script to parse the large (~1.5gb) XML from Apple Health/Watch; I used APIs to pull data from MFP, Dexcom, and Renpho; and I parsed CSVs from Strong. After extraction, I applied various transformation to standardize the data and create consistent sampling periods (mostly downsampling). Finally, I loaded the data into local SQL tables.
+
+### EDA and Designing Visuals
+
+
+
+Designing visuals was more of an art than programming. I spent a few days drawing on my iPad. I really had to think
 
