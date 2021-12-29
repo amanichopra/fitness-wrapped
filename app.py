@@ -26,9 +26,13 @@ MB_MDYS = r'./data/macro_breakdown_plot_midday_s.json'
 MB_D = r'./data/macro_breakdown_plot_d.json'
 MD_PD = r'./data/macro_breakdown_plot_pd.json'
 
+OVERVIEW_HRS_PLOT_PATH = r'./data/overview_hrs_plot.json'
+OVERVIEW_CAL_PLOT_PATH = r'./data/overview_cal_plot.json'
+OVERVIEW_FREQ_PLOT_PATH = r'./data/overview_freq_plot.json'
+
 # LOAD DATA
 with open(DFS_PATH, 'rb') as f:
-    workouts, m_stats, mfp, top_10_lifts = pickle.load(f)
+    workouts, m_stats, _, top_10_lifts = pickle.load(f)
 
 m_stats_table_style = discrete_background_color_bins(m_stats) # monthly stats styling for dashboard
 m_stats = format_df(m_stats) # format monthly stats to remove decimals, etc
@@ -55,7 +59,8 @@ avg_daily_exercise_time_mins = int(avg_daily_exercise_time % 60)
 avg_daily_calories = stats['avg_daily_calories']
 
 # LOAD PLOTS
-overview = get_workout_overview_plot(workouts) # workouts overview
+overview_plots = {'Hours Spent': read_json(OVERVIEW_HRS_PLOT_PATH), 'Calories Burned': read_json(OVERVIEW_CAL_PLOT_PATH),
+    'Frequency': read_json(OVERVIEW_FREQ_PLOT_PATH)}
 hourly_activity_plot = read_json(HOURLY_ACTIVITY_PLOT_PATH)
 daily_stats_plot = get_daily_stats_plot(workouts)
 macro_breakdown_plots = {'Breakfast': read_json(MB_B), 'Morning Snack': read_json(MB_MS),
@@ -99,7 +104,7 @@ dash.layout = html.Div(children=[
                     {'label': 'Calories Burned', 'value': 'Calories Burned'},
                     {'label': 'Frequency', 'value': 'Frequency'}],
                     placeholder='Select a metric.'),
-            dcc.Graph(id='workout-overview-plot', figure=overview)
+            dcc.Graph(id='workout-overview-plot', figure=overview_plots['Hours Spent'])
         ]),
 
         html.Br(),
@@ -232,7 +237,7 @@ dash.layout = html.Div(children=[
     Output('workout-overview-plot', 'figure'),
     Input('workout-overview-dropdown', 'value'))
 def update_workouts_overview(metric):
-    return get_workout_overview_plot(workouts, metric=metric)
+    return overview_plots['metric']
 
 
 @dash.callback(
