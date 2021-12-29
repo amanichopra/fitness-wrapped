@@ -42,11 +42,19 @@ Designing the layout for the site was the fun part. In fact, it felt more like a
 
 The last step involved deploying the web app onto a remote server. This step was important to me, as I wanted to make this public and available for anyone to see. I explored various cloud Platform as a Service (PaaS) solutions like Pythonanywhere, Heroku, AWS Elastic Beanstalk, Digital Ocean, and Amazon EC2. Ultimately, I decided to go with Heroku, as there were many tutorials and resources for deploying Flask/Dash apps.
 
-Deployment had its own set of issues. My builds kept failing due to the storage limits being exceeded. My initial app loading several large datasets into memory and conducted expensive data transformations. Since my datasets were static and only portraying statistics from 2021, I decided to only load the final, processed versions of the data and plots. Heroku's free plan only allowed for 512mb of RAM, so this was very beneficial. Another issue I ran into was Git's file storage limit being exceeded. GitHub has its own quotas, so I had to incorporate Git LFS and connect it to Heroku for successful deployment.
+This step was all about containerizing the app. Heroku runs on dyno, which is its own container, but also includes support for docker. I explored both these options but settled on dynos due to its low overhead. 
 
-After deployment, the app was functional but slow in loading. The walking visualizer map with 900+ walks and 1 million coordinates from the year was a 150mb file causing the app to crash or load slowly. I'm currently working on implementing the Ramer–Douglas–Peucker algorithm to downsample the GPX files being loaded into the map. The goal is to reduce file size to below 100mb for faster rendering and so I can prevent using Git LFS.
+Deployment had its own set of issues. My builds kept failing due to the storage and RAM limits being exceeded. My initial app loading several large datasets into memory and conducted expensive data transformations. Since my datasets were static and only portraying statistics from 2021, I decided to only load the final, processed versions of the data and plots. Heroku's free plan only allowed for 512mb of RAM and storage, so this was very beneficial. Another issue I ran into was Git's file storage limit being exceeded. GitHub has its own quotas, so I had to incorporate Git LFS and connect it to Heroku for successful deployment.
 
+After deployment, the app was functional but slow in loading. The walking visualizer map with 900+ walks and 1 million coordinates from the year was a 150mb file causing the app to crash or load slowly. This is why the webpage takes a while to load.
 
+## Next Steps
 
+This was originally just a winter break project, but now having built this full-stack system, I'm inspired to make this grow. Here are some of the new tasks in the pipeline:
 
+- Implement the Ramer–Douglas–Peucker algorithm to downsample the GPX files being loaded into the map. The goal is to reduce file size to below 100mb for faster rendering and so I can prevent using Git LFS.
+- Deploy the walking visualizer map as its own standalone app. Instead of embedding the HTML for the map directly in the dashboard, add a hyperlink redirecting to the standalone. Since I'm using Heroku's free service, this would help improve load time by distributing the load across two sites rather than one.
+- Deploy an ML model that will predict what workout someone should do if they want to burn a target number of calories, only have a certain amount of time, and are only willing to exert a specified amount of intensity. This is really functional to me personally, since I am always looking for the most efficient workout when I am in a rush. This step will also involve collecting data from other Apple Health/Watch users.
+- Incorporate more diabetes-related metrics.
 
+**If you're interested in seeing your 2021 Wrapped, send me an email at amanichopra@gmail.com!**
