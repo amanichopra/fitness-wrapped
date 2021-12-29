@@ -56,5 +56,6 @@ This was originally just a winter break project, but now having built this full-
 - Deploy the walking visualizer map as its own standalone app. Instead of embedding the HTML for the map directly in the dashboard, add a hyperlink redirecting to the standalone. Since I'm using Heroku's free service, this would help improve load time by distributing the load across two sites rather than one.
 - Deploy an ML model that will predict what workout someone should do if they want to burn a target number of calories, only have a certain amount of time, and are only willing to exert a specified amount of intensity. This is really functional to me personally, since I am always looking for the most efficient workout when I am in a rush. This step will also involve collecting data from other Apple Health/Watch users.
 - Incorporate more diabetes-related metrics.
+- Schedule tasks for ETL. I've done this with my Dexcom CGM data before using cron jobs on my local system, but with this scale of data, local storage is no longer an option. I will probably have to look into cloud options like Amazon's EBS, RDS, or S3.
 
 **If you're interested in seeing your 2021 Wrapped, send me an email at amanichopra@gmail.com!**
