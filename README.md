@@ -1,4 +1,4 @@
-# [2022 Wrapped](https://fitness-wrapped-app-fp3nk5sylq-ue.a.run.app/)
+# [Fitness Wrapped](https://fitness-wrapped-app-fp3nk5sylq-ue.a.run.app/)
 
 Ever since I bought an Apple Watch in 2020, I took data collection to the next level. I've always been a health and fitness enthusiast, but I started tracking every walk, bike ride, gym workout, body measurements, nutrition, and more. Especially being a type-1 diabetic, it's important for me to stay active, eat the right foods, and stay consistent to help manage this disease. 
 
@@ -8,13 +8,15 @@ After my T1 diabetes diagnosis in May 2021, I realized how my own personal data 
 
 November came along, and I had an epiphany: winter break was coming soon and I needed to come up with a game plan to feel fulfilled and do something productive and exciting, since I would have 3 weeks of free time. Around the time, Spotify also released "Spotify Wrapped", which leveraged data science to portray fun, competitive statistics for users to view and share. This inspired me to build my own version, but using health and fitness data instead. Similar to Spotify Wrapped, I was driven to create high-level visuals to share aggregate statistics from my workouts and nutrition through the year.
 
+After building v1 in 2021, I wanted to do the same again in 2022 but add feature improvements.
+
 ## Managing Goals, Workflows, and Timelines
 
 After this epiphany, I began brainstorming how I could execute this vision and build something deliverable. I've always had ideas in my head, but this one was different. I couldn't waste all the data that I've been tracking so consistently. I learned about Trello and the agile workflow to help manage my project workflow. 
 
 <img width="568" height=500 alt="Screen Shot 2021-12-28 at 5 41 03 PM" src="https://user-images.githubusercontent.com/42814002/147619493-a8ad10ff-0ff3-415c-8438-578d1bf06714.png">
 
-As shown above, these were some of the initial features I added to my kanban boards. I utilized 3 buckets: todo, in-progress, and complete. I updated the features daily throughout November, as new ideas came to my head.
+As shown above, these were some of the initial features I added to my kanban boards. I utilized 3 buckets: todo, in-progress, and complete. I updated the features daily, as new ideas came to my head.
 
 ## Methodology
 
@@ -57,5 +59,7 @@ This was originally just a winter break project, but now having built this full-
 - Train and deploy an ML model that will predict what workout someone should do if they want to burn a target number of calories, only have a certain amount of time, and are only willing to exert a specified amount of intensity. This is really functional to me personally, since I am always looking for the most efficient workout when I am in a rush. This step will also involve collecting data from other Apple Health/Watch users.
 - Incorporate more diabetes-related metrics.
 - Schedule tasks for ETL. I've done this with my Dexcom CGM data before using cron jobs on my local system, but with this scale of data, local storage is no longer an option. I will probably have to look into cloud options like Amazon's EBS, RDS, or S3.
+- Add CI/CD for updates to the app code.
+- Leverage pyspark for initial processing of raw data. Although the app assumes the data is processed already, if I wanted to scale the app to allow users to upload their Apple Health exports (XML), I would need to trigger an ETL pipeline (perhaps using a service like Dataproc on GCP) to do the heavy procesing. These XMLs are over 2GB!
 
 **If you're interested in seeing your Fitness Wrapped, send me an email at amanichopra@gmail.com!**
