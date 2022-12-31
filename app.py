@@ -20,7 +20,7 @@ YEAR = 2022 # ENTER THE YEAR OF DATA YOU WANT TO SEE. None MEANS ALL YEARS.
 DESCRIPTION = f"I've always been a health and fitness enthusiast, playing a variety of sports and valuing balanced nutrition. " \
               "I took it to the next level in 2020 when I got an Apple Watch and starting consistently tracking everything, " \
               "from food to workouts to weight. Here, I combine my passion in data science and fitness to gain insights to keep me " \
-              "motivated and consistent. Check out my <a href=\"https://github.com/amanichopra/2021-Wrapped\"><u>GitHub</u></a> to see " \
+              "motivated and consistent. Check out my <a href=\"https://github.com/amanichopra/fitness-wrapped\"><u>GitHub</u></a> to see " \
               "how I implemented this!" # LEAVE AS IS
 DESCRIPTION_OVERRIDE = '' # ENTER YOUR DESCRIPTION HERE
 
@@ -108,7 +108,7 @@ dash.title = f'{YEAR}Wrapped'
 # SET DASH LAYOUT
 h1_prefix = "I've completed over "
 if YEAR:
-    h1_prefix = "2021's been a great year! " + h1_prefix
+    h1_prefix = f"{YEAR}'s been a great year! " + h1_prefix
 h2_prefix = "I love being on my feet. "
 if YEAR:
     h2_prefix += "This year, I've walked "
@@ -290,10 +290,10 @@ else:
                 html.H2('Daily Statistics', className="spanp", style={'font-size': 22, 'display': 'table', 'margin-top': 0}),
                 dcc.DatePickerSingle(
                     id='daily-stats-date-picker',
-                    min_date_allowed=date(2022, 1, 1),
-                    max_date_allowed=date(2022, 12, 31),
-                    initial_visible_month=date(2022, 1, 1),
-                    date=date(2022, 1, 1)),
+                    min_date_allowed=date(YEAR, 1, 1),
+                    max_date_allowed=date(YEAR, 12, 31),
+                    initial_visible_month=date(YEAR, 1, 1),
+                    date=date(YEAR, 1, 1)),
                 dcc.Graph(id='daily-stats-plot', figure=daily_stats_plot)
             ]),
 
@@ -372,7 +372,7 @@ def update_workouts_overview(metric):
     Output('daily-stats-plot', 'figure'),
     Input('daily-stats-date-picker', 'date'))
 def update_daily_stats_plot(date):
-    if not date: return datetime.strptime('2022-01-01', '%Y-%m-%d').date()
+    if not date: return datetime.strptime(f'{YEAR}-01-01', '%Y-%m-%d').date()
     date = datetime.strptime(date, '%Y-%m-%d').date()
     plot = get_daily_stats_plot(workouts, date=date)
     if not plot: print('error')

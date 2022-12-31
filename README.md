@@ -1,4 +1,4 @@
-# [2021 Wrapped](https://fitness-wrapped.herokuapp.com/)
+# [2022 Wrapped](https://fitness-wrapped-app-fp3nk5sylq-ue.a.run.app/)
 
 Ever since I bought an Apple Watch in 2020, I took data collection to the next level. I've always been a health and fitness enthusiast, but I started tracking every walk, bike ride, gym workout, body measurements, nutrition, and more. Especially being a type-1 diabetic, it's important for me to stay active, eat the right foods, and stay consistent to help manage this disease. 
 
