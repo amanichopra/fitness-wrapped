@@ -58,4 +58,4 @@ This was originally just a winter break project, but now having built this full-
 - Incorporate more diabetes-related metrics.
 - Schedule tasks for ETL. I've done this with my Dexcom CGM data before using cron jobs on my local system, but with this scale of data, local storage is no longer an option. I will probably have to look into cloud options like Amazon's EBS, RDS, or S3.
 
-**If you're interested in seeing your 2021 Wrapped, send me an email at amanichopra@gmail.com!**
+**If you're interested in seeing your Fitness Wrapped, send me an email at amanichopra@gmail.com!**
