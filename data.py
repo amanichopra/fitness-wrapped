@@ -1,18 +1,15 @@
 import plotly.graph_objects as go
 from datetime import date
 
-# PATH VARS
-WORKOUTS_PATH = r'./data/Workout_Processed.csv'
-WORKOUT_MAP_PATH = r'./data/walks.html'
-
 
 # FUNCTIONS TO LOAD DATA
-def get_workout_map(path=WORKOUT_MAP_PATH):
+def get_workout_map(path):
     return open(path).read()
 
 
-def get_daily_stats_plot(workouts, date=date(2021, 1, 1)):
+def get_daily_stats_plot(workouts, date=date(2022, 1, 1)):
     day = workouts[workouts['Date'].dt.date == date].groupby('Workout').sum().reset_index()
+    if day.empty: return None
     day['Workout'] = day.apply(
         lambda x: f"{x['Workout']} ({round(x['Distance (mi)'], 2)}mi)" if x['Distance (mi)'] != 0 else x['Workout'],
         axis=1)

@@ -1,0 +1,12 @@
+Dockerfile
+README.md
+**/*.ipynb
+**/.ipynb_checkpoints/
+static/data/Aarya/
+static/data/Avi/
+static/data/Shreyas/
+.git
+.gitattributes
+.gitignore
+**/.DS_Store
+__pycache__/

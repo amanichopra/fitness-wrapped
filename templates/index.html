@@ -4,11 +4,11 @@
         <!-- meta charset -->
         <meta charset="utf-8">
         <!-- site title -->
-        <title>Aman's Fitness</title>
+        <title>{{name}}'s Fitness</title>
         <!-- meta description -->
         <meta name="description" content="A site to view and analyze all the fitness and health data I've collected with my Apple Watch, iPhone, and other sources.">
         <!-- mobile viwport meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- favicon -->
         <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
         
@@ -43,7 +43,7 @@
                                     <div style="text-align:center;">
                                         <svg viewBox="0 0 1300 300">
                                             <symbol id="s-text">
-                                                <text text-anchor="middle" x="50%" y="80%">Aman's Fitness</text>
+                                                <text text-anchor="middle" x="50%" y="80%">{{name}}'s Fitness</text>
                                             </symbol>
 
                                             <g class = "g-ants">
@@ -55,14 +55,11 @@
                                             </g>
                                         </svg>
                                     </div>
-                                    <p>I've always been a health and fitness enthusiast, playing a variety of sports and valuing balanced nutrition.
-                                        I took it to the next level in 2020 when I got an Apple Watch and starting consistently tracking everything,
-                                        from food to workouts to weight. Here, I combine my passion in data science and fitness to gain insights to
-                                        keep me motivated and consistent. Check out my <a href="https://github.com/amanichopra/2021-Wrapped"><u>GitHub</u></a> to see how I implemented this!</p>
+                                    <p>{{description|safe}}</p>
                                 </div>
                                 <a href="/wrapped">
                                    <div id="button">
-                                        <button class="glow-on-hover" type="button">OPEN 2021 WRAPPED!</button>
+                                        <button class="glow-on-hover" type="button">OPEN {{yr}}WRAPPED!</button>
                                     </div>
                                 </a>
                             </div> <!-- /.col-xs-12 -->

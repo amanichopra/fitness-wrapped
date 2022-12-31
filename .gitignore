@@ -1,5 +1,7 @@
-__pycache__
-*.ipynb
-data/raw/
+**/*.ipynb
+static/data/*/
 .idea/
-.DS_Store
+**/.DS_Store
+__pycache__/
+**/.ipynb_checkpoints
+.idea/
