@@ -4,49 +4,51 @@ Ever since I bought an Apple Watch in 2020, I took data collection to the next l
 
 ## Inspiration
 
-After my T1 diabetes diagnosis in May 2021, I realized how my own personal data could impact more than just diabetes management. I began analyzing nutrition data that I had logged in 2020 in MyFitnessPal, blood glucose data from the continous glucose monitor I wear every day, step counts from Apple Health, and body mass from my bluetooth weighing scale. I produced various charts and models but lost motivation in June after realizing the complexity of integrating data from these disjoint sources.
+After my T1 diabetes diagnosis in May 2021, I realized how my personal data could improve diabetes management. I began analyzing nutrition data that I had logged in 2020 in MyFitnessPal, blood glucose data from the continous glucose monitor I wear every day, step counts from Apple Health, and body mass from my bluetooth weighing scale. I produced various charts and models but lost motivation in June after realizing the complexity of integrating data from these disjoint sources.
 
-November came along, and I had an epiphany: winter break was coming soon and I needed to come up with a game plan to feel fulfilled and do something productive and exciting, since I would have 3 weeks of free time. Around the time, Spotify also released "Spotify Wrapped", which leveraged data science to portray fun, competitive statistics for users to view and share. This inspired me to build my own version, but using health and fitness data instead. Similar to Spotify Wrapped, I was driven to create high-level visuals to share aggregate statistics from my workouts and nutrition through the year.
+November came along, and I had an epiphany: winter break was coming soon and I wanted a rush of fulfillment for the new year, since I would have 3 weeks of free time. Around the time, Spotify also released Spotify Wrapped, which enabled users to view and share their top artists throughout the year in the form of a vibrant, interactive visualization. This inspired me to build my own version, but using health and fitness data instead. Similar to Spotify Wrapped, I was driven to create visuals to share aggregate statistics from my workouts and nutrition throughout the year. Version 1 came out by December, but there were many bugs, and I was only able to deploy it on a local flask server. 
 
-After building v1 in 2021, I wanted to do the same again in 2022 but add feature improvements.
+For most of 2022, the project was on pause as I started my MS at Columbia University and joined Ford as an ML Engineer. In December, I saw Spotify Wrapped again and was driven to pick the project back up. I added various feature improvements which are described below.
 
-## Managing Goals, Workflows, and Timelines
+## Project Management
 
-After this epiphany, I began brainstorming how I could execute this vision and build something deliverable. I've always had ideas in my head, but this one was different. I couldn't waste all the data that I've been tracking so consistently. I learned about Trello and the agile workflow to help manage my project workflow. 
+Inspired by Kanban boards in the agile workflow, I used Trello to management timelines, issues, and the workflow. 
 
 <img width="568" height=500 alt="Screen Shot 2021-12-28 at 5 41 03 PM" src="https://user-images.githubusercontent.com/42814002/147619493-a8ad10ff-0ff3-415c-8438-578d1bf06714.png">
 
-As shown above, these were some of the initial features I added to my kanban boards. I utilized 3 buckets: todo, in-progress, and complete. I updated the features daily, as new ideas came to my head.
+As shown above, these were some of the initial features I added to my board. I utilized 3 buckets: todo, in-progress, and complete. I updated the features daily, as new ideas came to my head.
 
 ## Methodology
 
-Finally, winter break came along. I had 3 weeks to get this project to a deliverable state. At this point, my workflow boards had 4 main items:
 1. Extract, transform, and load data.
-2. Design meaningful visuals portraying my walking routes, activity levels, aggregate statistics, and nutrition.
-3. Create a web application.
+2. Conduct EDA.
+3. Build backend.
+4. Build frontend.
 4. Deploy the app.
 
 ### ETL (Extract, Transform, Load)
 
-This part of the project resulting in the most bugs. With data coming from various sources (Apple Health, MyFitnessPal (MFP), Renpho Weighing Scale, Apple Watch, Dexcom CGM, Strong Workout App), I had to develop a robust pipeline to combine all these datasets and standardize them. I wrote a script to parse the large (~1.5gb) XML from Apple Health/Watch; I used APIs to pull data from MFP, Dexcom, and Renpho; and I parsed CSVs from Strong. After extraction, I applied various transformation to standardize the data and create consistent sampling periods (mostly downsampling). Finally, I loaded the data into local SQL tables.
+With data coming from various sources (Apple Health, MyFitnessPal (MFP), Renpho Weighing Scale, Apple Watch, Dexcom CGM, Strong Workout App), I had to develop a robust pipeline to combine all these datasets and standardize them. I wrote a script to parse the large (~2.5gb) XML from Apple Health/Watch; used APIs to pull data from MFP, Dexcom, and Renpho; and parsed CSVs from Strong. After extraction, I applied various transformations to standardize the data, create consistent sampling periods, and downsample. Finally, I loaded the data into local tables on GCP's BigQuery.
 
-### EDA and Designing Visuals
+### EDA
 
-This was the most exciting part: exploring my data! I produced dozens of plots and statistics like heart rate distributions, favorite food items, macronutrient distributions, blood glucose patterns, daily TDEE, caloric intake, step count distributions, and much more. Ultimately, I narrowed down a list of 10 plots and statistics that really stuck with me. These were hard to choose, but given that the goal of this project was to "wrap up" the year, I had to be selective in what I included. These plots are implemented in the app.
+This was the most exciting part: exploring my data! I produced dozens of plots and statistics like heart rate plots, wordclouds of favorite food items, macronutrient distributions, blood glucose patterns, daily TDEE, caloric intake, step count distributions, and much more. Ultimately, I narrowed down a list of 10 plots and statistics that really stuck with me. These were hard to choose, but given that the goal of this project was to "wrap up" the year, I had to be selective in what I included. These plots are implemented in the app.
 
-### Creating the Web App
+### Backend/Front-End
 
-Creating the web app was definitely the most difficult part. At the same time though, this is where I learned the most. I don't have prior front-end experience with desigining websites or UIs. I learned about various languages, frameworks, and tools like Flask, Django, HTML, CSS, JS, Bootstrap, and React. Ultimately, I decided to use HTML for structuring the site, Boostrap CSS to style it, JS for the interactivity, and Flask in Python to implement the dashboard. 
+This is where I learned the most, as I don't have prior back-end or front-end experience with desigining websites or UIs. I learned about various languages, frameworks, and tools like Flask, Node, and Django. Ultimately, I settled on Flask as I'm most proficient in Python. I learned about advanced callbacks, compressing responses, and designing layouts.
 
-Designing the layout for the site was the fun part. In fact, it felt more like art than programming. I spent days drawing layouts on my iPad, planning where to position each of the plots and statistics. After coming up with a satisfying layout, I went about writing the HTML, CSS, and JS. After this, I wrote the Flask app and tested locally.
+### Frontend
+
+For the front-end, I used HTML (in addition to Flask) for structuring the homepage, CSS for styling, and JS to handle client-side interactivitiy.
 
 ### Deployment
 
-The last step involved deploying the web app onto a remote server. This step was important to me, as I wanted to make this public and available for anyone to see. I explored various cloud Platform as a Service (PaaS) solutions like Pythonanywhere, Heroku, AWS Elastic Beanstalk, Digital Ocean, and Amazon EC2. Ultimately, I decided to go with Heroku, as there were many tutorials and resources for deploying Flask/Dash apps.
+The last step involved deploying the web app onto a remote server. This step was important to me, as I wanted to make this public and available for anyone to see. I explored various cloud PaaS and SaaS solutions like Pythonanywhere, Heroku, AWS EC2, Digital Ocean, GCP App Engine, and GCP Cloud Run. In version 1, I decided to go with Heroku, as there were many tutorials and resources for deploying Flask/Dash apps. In 2022, I transitioned to GCP's Cloud Run, as I began working on deploying the ETL pipeline on GCP Dataproc and thought it would make the most sense to centralize around one cloud provider.
 
-This step was all about containerizing the app. Heroku runs on dyno, which is its own container, but also includes support for docker. I explored both these options but settled on dynos due to its low overhead. 
+This step involved containerizing the app, pushing the image to a registry, and deploying the service. 
 
-Deployment had its own set of issues. My builds kept failing due to the storage and RAM limits being exceeded. My initial app loading several large datasets into memory and conducted expensive data transformations. Since my datasets were static and only portraying statistics from 2021, I decided to only load the final, processed versions of the data and plots. Heroku's free plan only allowed for 512mb of RAM and storage, so this was very beneficial. Another issue I ran into was Git's file storage limit being exceeded. GitHub has its own quotas, so I had to incorporate Git LFS and connect it to Heroku for successful deployment.
+Deployment had its own set of issues. My builds kept failing due to the storage, RAM, and response size limits being exceeded. My initial app loading several large datasets into memory and conducted expensive data transformations. Since my datasets were static and only portraying statistics from 2022, I decided to only load the final, processed versions of the data and plots. Heroku's free plan only allowed for 512mb of RAM and storage, so this was very beneficial. Another issue I ran into was Git's file storage limit being exceeded. GitHub has its own quotas, so I had to incorporate Git LFS and connect it to Heroku for successful deployment.
 
 After deployment, the app was functional but slow in loading. The walking visualizer map with 900+ walks and 1 million coordinates from the year was a 150mb file causing the app to crash or load slowly. This is why the webpage takes a while to load.
 
